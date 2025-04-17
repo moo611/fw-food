@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="header">
-      <el-button v-show="false" type="primary" @click="getFoodList">查询</el-button>
+      <el-input placeholder="请选择" v-model="queryParams.name" style="width: 180px;margin-right: 10px;"/>
+      <el-button type="primary" @click="getFoodList">查询</el-button>
       <el-button @click="handleAdd" type="primary" class="btn-add">新增</el-button>
     </div>
     <el-table class="my-table" :data="state.data.list">
@@ -85,7 +86,7 @@ let mode = '0'
 const queryParams = reactive({
   pageNum: 1,
   pageSize: 10,
-
+  name:''
 })
 
 const categoryOptions = [{ value: '0', label: '主食' }, { value: '1', label: '炒菜' }, { value: '2', label: '凉菜' }, { value: '3', label: '饮品' },{ value: '4', label: '其他' }]
