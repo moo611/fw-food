@@ -2,11 +2,11 @@
   <div>
     <div class="header">
       <span style="margin-right: 5px;">角色</span>  
-      <el-select style="width: 150px;" v-model="queryParams.role" placeholder="请选择角色" @change="getUserList">
+      <el-select style="width: 150px;" v-model="queryParams.role" placeholder="请选择角色" >
         <el-option v-for="item in roleOptions" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
-
-      <el-button v-show="false" @click="handleAdd" type="primary" class="btn-add">新增</el-button>
+      <el-input v-model="queryParams.nickname" placeholder="请输入" style="width: 180px;margin-left: 10px;margin-right: 10px;"/>
+      <el-button @click="getUserList" type="primary" >查询</el-button>
     </div>
     <el-table class="my-table" :data="state.data.list">
 
@@ -72,6 +72,7 @@ const queryParams = reactive({
   pageNum: 1,
   pageSize: 10,
   role: 'all',
+  nickname:''
 })
 const state = reactive({
   data: {},
